@@ -1,6 +1,6 @@
 import gql from 'graphql-tag';
 
-const mutation = gql`
+export default gql`
   mutation AddMountain($title: String) {
     addMountain(title: $title) {
       title
