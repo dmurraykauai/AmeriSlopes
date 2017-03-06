@@ -29,6 +29,8 @@ class MountainList extends Component {
     if (this.props.data.loading) {
       return <div>Loading...</div>;
     }
+    console.log(this.props.data.user);
+
     return (
       <div>
         <ul className="collection">
