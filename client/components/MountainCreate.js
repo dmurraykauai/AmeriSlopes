@@ -2,7 +2,8 @@ import React, {Component} from 'react';
 import {graphql} from 'react-apollo';
 import {Link, hashHistory} from 'react-router';
 import query from '../queries/fetchMountains';
-import mutation from '../mutations/AddMountain';
+//import mutation from '../mutations/AddMountain';
+import gql from 'graphql-tag';
 
 class MountainCreate extends Component {
   constructor(props) {
@@ -38,5 +39,15 @@ class MountainCreate extends Component {
     );
   }
 }
+
+
+
+const mutation = gql`
+  mutation AddMountain($title: String) {
+    addMountain(title: $title) {
+      title
+    }
+  }
+`;
 
 export default graphql(mutation)(MountainCreate);

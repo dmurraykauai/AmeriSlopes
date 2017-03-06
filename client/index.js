@@ -40,11 +40,11 @@ const Root = () => {
       <Router history={hashHistory}>
         <Route path="/" component={App}>
           <IndexRoute component={MountainList} />
-          <Route path="mountains/:id" component={MountainDetail} />
           <Route path="login" component={LoginForm} />
           <Route path="signup" component={SignupForm} />
-          <Route path="dashboard" component={Dashboard} />
           <Route path="mountains/new" component={MountainCreate} />
+          <Route path="mountains/:id" component={MountainDetail} />
+          <Route path="dashboard" component={Dashboard} />
         </Route>
       </Router>
     </ApolloProvider>
