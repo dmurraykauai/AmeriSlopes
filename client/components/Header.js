@@ -14,6 +14,9 @@ class Header extends Component {
   renderButtons() {
     const { loading, user } = this.props.data;
 
+    //console.log('user in header: ');
+    //console.log(user);
+
     if (loading) { return <div />; }
 
     if (user) {

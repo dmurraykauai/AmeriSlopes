@@ -24,24 +24,33 @@ class MountainList extends Component {
     });
   }
 
-  render() {
-    //console.log(this.props);
-    if (this.props.data.loading) {
-      return <div>Loading...</div>;
-    }
-    console.log(this.props.data.user);
+  renderAddButton() {
+    //const { user } = this.props.data;
+    //console.log(user);
 
-    return (
-      <div>
-        <ul className="collection">
-          {this.renderMountains()}
-        </ul>
+      return (
         <Link
           to="/mountains/new"
           className="btn-floating btn-large red right"
         >
           <i className="material-icons">add</i>
         </Link>
+      )
+  }
+
+  render() {
+    //console.log(this.props);
+    if (this.props.data.loading) {
+      return <div>Loading...</div>;
+    }
+
+    return (
+      <div>
+        <ul className="collection">
+          {this.renderMountains()}
+        </ul>
+        {this.renderAddButton()}
+
       </div>
     );
   }
