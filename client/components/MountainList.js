@@ -44,6 +44,8 @@ class MountainList extends Component {
       return <div>Loading...</div>;
     }
 
+    const authed = this.props.data.user;
+
     return (
       <div>
         <ul className="collection">

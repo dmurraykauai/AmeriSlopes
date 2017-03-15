@@ -12,6 +12,7 @@ import MountainCreate from './components/MountainCreate';
 import MountainList from './components/MountainList';
 import MountainDetail from './components/MountainDetail';
 import Dashboard from './components/Dashboard';
+import requireAuth from './components/requireAuth';
 
 const networkInterface = createNetworkInterface({
   uri: '/graphql',
@@ -19,6 +20,8 @@ const networkInterface = createNetworkInterface({
     credentials: 'same-origin'
   }
 });
+
+
 
 
 const client = new ApolloClient({
@@ -39,12 +42,12 @@ const Root = () => {
     <ApolloProvider client={client}>
       <Router history={hashHistory}>
         <Route path="/" component={App}>
-          <IndexRoute component={MountainList} />
-          <Route path="login" component={LoginForm} />
-          <Route path="signup" component={SignupForm} />
-          <Route path="mountains/new" component={MountainCreate} />
-          <Route path="mountains/:id" component={MountainDetail} />
-          <Route path="dashboard" component={Dashboard} />
+          <IndexRoute component={MountainList}/>
+          <Route path="login" component={LoginForm}/>
+          <Route path="signup" component={SignupForm}/>
+          <Route path="mountains/new" component={requireAuth(MountainCreate)}/>
+          <Route path="mountains/:id" component={MountainDetail}/>
+          <Route path="dashboard" component={requireAuth(Dashboard)}/>
         </Route>
       </Router>
     </ApolloProvider>

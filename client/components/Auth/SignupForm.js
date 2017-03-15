@@ -41,6 +41,7 @@ class SignupForm extends Component {
   }
 }
 
+// order of 'query' and 'mutation' doesn't matter. Will work either way.
 export default graphql(query)(
   graphql(mutation)(SignupForm)
 );
